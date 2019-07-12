@@ -22,15 +22,14 @@ void lock_init() {
 void lock(int self) {
     flag[self] = 1;
     turn = 1-self;
-    while (flag[1-self]==1 && turn==1-self);
+    while (flag[1-self]==1 && turn==1-self) ;
 }
 
 void unlock(int self) {
     flag[self] = 0;
 }
 
-void* func(void *s)
-{
+void* func(void *s) {
     int i = 0;
     int self = (int *)s;
     printf("Thread Entered: %d\n", self);
